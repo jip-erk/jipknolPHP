@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css"></link>
+    <script src="https://cdn.jsdelivr.net/gh/joeymalvinni/webrtc-ip/dist/production.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="assets\funky.min.js"></script>
+
+</head>
+
+<body>
+
+    <div class="Section1">
+        <h1 class="text">Jip Knol</h1>
+
+        <a class="text" style="margin-top: 90px;">"Hacker Man"</a>
+        <img class="img" draggable="false" src="assets/jip.png">
+        <canvas class="matrix" id="canv"></canvas>
+    </div>
+
+    <div class="navbar">
+
+        <svg class="icons" href="#" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 40.9 42.1" enable-background="new 0 0 40.9 42.1" xml:space="preserve">
+            <g>
+                
+                    <path fill="#00ff00" stroke="#00ff00" stroke-width="1.3469" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="   M29.5,11.8l-9.4-9.7l-9.4,9.7l-9.4,9.7H7v18.4h8.8v-6.2c0-2.4,1.9-4.3,4.3-4.3l0,0c2.4,0,4.3,1.9,4.3,4.3v6.2h8.8V21.5H39   L29.5,11.8z"/>
+                
+                    <polygon  fill="#00ff00" stroke="#00ff00" stroke-width="1.3469" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="   11.3,5 7.6,5 7.6,14.9 11.3,11.1  "/>
+            </g>
+            </svg>
+
+        <a href="#desktop" class="text-icon">Start</a>
+        <a class="text-icon close" id="consoleButton">Console</a>
+        <a class="text-icon close4">Files</a>
+        <a class="text-icon close2">Docs</a>
+        <a class="text-icon close3">Cam</a>
+        <p class="icon">
+            <a href="mailto:jip.knolpower@gmail.com">
+                <img class="text-icon icons icon" style="margin: 0;" src="assets/gmailicon.png">
+            </a>
+        </p>
+        <p class="icon">
+            <a href="https://www.youtube.com/channel/UCxAGrvifoncpkNo-mkXWEVA" target="_blank">
+                <img class="text-icon icons icon" style="margin: 0;" src="assets/ytIcon.png">
+            </a>
+        </p>
+        <p class="icon">
+            <a href="https://discordapp.com/users/488245904579756034" target="_blank">
+                <img class="text-icon icons icon" style="margin: 0;" src="assets/discord.png">
+            </a>
+        </p>
+
+
+    </div>
+
+    <div class="Section2" id="desktop">
+
+        <div>
+            <table class="headertxt2 table" id="results"></table>
+        </div>
+
+        <div class="dragable" id="console" style="right: 0;">
+            <div class="drag dragger" id="mydivheader">
+                <div style="text-align: right;">
+                    <a class="headertxt" style="float: left;">console</a>
+                    <a class="headertxt headerx close">X</a>
+                </div>
+            </div>
+            <div id="data" style="overflow-y: scroll; overflow-x: hidden; width: 100%; height: 93%;">
+
+                <div id="in">
+
+                </div>
+
+                <div class="input-line">
+                    <a class="headertxt2" id="path"></a>
+                    <input class="input" id="input" autocomplete="off" spellcheck="false" id="cmdInput" name="commandline">
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="dragable" style=" left: 0; display: none;" id="console2">
+            <div class="dragger" id="mydivheader">
+                <div style="text-align: right; ">
+                    <a class="headertxt" style="float: left;">Docs</a>
+                    <a class="headertxt headerx close2">X</a>
+                </div>
+            </div>
+            <a class="headertxt2" style="margin-left: 5px;">commands for console</a><br>
+            <ul>
+                <li class=" list">ip (getting user ip)</li>
+                <li class=" list">cd + (foldername) (for going in folders)</li>
+                <li class=" list">open (open item in selected folder)</li>
+                <li class=" list">cd ..\ or cd ../ (go out of selected folder)</li>
+            </ul>
+
+            <img class="emote" src="https://cdn.betterttv.net/emote/61480095b63cc97ee6d261ac/3x">
+        </div>
+
+
+        <div class="dragable" style="display: none; left: 0; height: 350px; width: 429px;" id="cam">
+            <div class="dragger" id="mydivheader">
+                <div style="text-align: right;">
+                    <a class="headertxt" style="float: left;">Cam</a>
+                    <a class="headertxt headerx close3">X</a>
+                </div>
+            </div>
+
+
+            <video id="myVidPlayer" style="width: 100%; height: 92%;   object-fit: cover;" muted autoplay></video>
+
+
+        </div>
+
+        <div class="dragable" style="display: none; left: 0; height: 450px; width: 480px;" id="files">
+            <div class="dragger" id="mydivheader">
+                <div style="text-align: right;">
+                    <a class="headertxt" style="float: left;">Files</a>
+                    <a class="headertxt headerx close4">X</a>
+                </div>
+            </div>
+
+            <div class="files">
+                <div id="mainFolder">
+
+
+                    <div id="sec" class="folder1">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 60 60" style="enable-background:new 0 0 60 60;" xml:space="preserve">
+                            <g>
+                                <path fill="#00ff00"; d="M56.981,11.5H28.019V6.52c0-1.665-1.354-3.02-3.019-3.02H3.019C1.354,3.5,0,4.854,0,6.52V20.5h60v-5.98   C60,12.854,58.646,11.5,56.981,11.5z"/>
+                                <path fill="#00ff00"; d="M0,53.48c0,1.665,1.354,3.02,3.019,3.02h53.962c1.665,0,3.019-1.354,3.019-3.02V22.5H0V53.48z"/>
+                            </g>
+                        </svg>
+                        <a class="headertxt2 foldertxt">Secrets🔒</a>
+                    </div>
+                    <div class="folder1">
+
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 60 60" style="enable-background:new 0 0 60 60;" xml:space="preserve">
+                            <g>
+                                <path fill="#00ff00"; d="M56.981,11.5H28.019V6.52c0-1.665-1.354-3.02-3.019-3.02H3.019C1.354,3.5,0,4.854,0,6.52V20.5h60v-5.98   C60,12.854,58.646,11.5,56.981,11.5z"/>
+                                <path fill="#00ff00"; d="M0,53.48c0,1.665,1.354,3.02,3.019,3.02h53.962c1.665,0,3.019-1.354,3.019-3.02V22.5H0V53.48z"/>
+                            </g>
+                        
+                        </svg>
+                        <a class="headertxt2 foldertxt">Homework</a>
+                    </div>
+
+                    <div class="folder1" id="homeworkFolder">
+
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 60 60" style="enable-background:new 0 0 60 60;" xml:space="preserve">
+                            <g>
+                                <path fill="#00ff00"; d="M56.981,11.5H28.019V6.52c0-1.665-1.354-3.02-3.019-3.02H3.019C1.354,3.5,0,4.854,0,6.52V20.5h60v-5.98   C60,12.854,58.646,11.5,56.981,11.5z"/>
+                                <path fill="#00ff00"; d="M0,53.48c0,1.665,1.354,3.02,3.019,3.02h53.962c1.665,0,3.019-1.354,3.019-3.02V22.5H0V53.48z"/>
+                            </g>
+                        
+                        </svg>
+                        <a class="headertxt2 foldertxt">Hacks</a>
+                    </div>
+
+                    <di id="pass" class="folder1 password">
+                        <a class="headertxt2 foldertxt" style="text-align: center; float: none;">Password</a>
+                        <input class="passInput" type="password" id="passwordInput" autocomplete="off" spellcheck="false" id="cmdInput" name="commandline">
+                    </di>
+                </div>
+
+                <div id="inHomework" style="display: none;">
+                    <div class="folder1" id="backHacks">
+                        <svg height="512px" id="Layer_1" style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="512px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><polygon  fill="#00ff00"; points="352,128.4 319.7,96 160,256 160,256 160,256 319.7,416 352,383.6 224.7,256 "/></svg>
+                    </div>
+                    <div class="folder1">
+                        <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill="#00ff00"; d="M12 4c-2.21 0-3.98 1.79-3.98 4l-.02 32c0 2.21 1.77 4 3.98 4h24.02c2.21 0 4-1.79 4-4v-24l-12-12h-16zm14 14v-11l11 11h-11z"/><path d="M0 0h48v48h-48z" fill="none"/></svg>
+                        <a class="headertxt2 foldertxt">Word.exe</a>
+                    </div>
+                    <div class="folder1">
+                        <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill="#00ff00"; d="M12 4c-2.21 0-3.98 1.79-3.98 4l-.02 32c0 2.21 1.77 4 3.98 4h24.02c2.21 0 4-1.79 4-4v-24l-12-12h-16zm14 14v-11l11 11h-11z"/><path d="M0 0h48v48h-48z" fill="none"/></svg>
+                        <a class="headertxt2 foldertxt">Settings</a>
+                    </div>
+                    <div class="folder1">
+
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 60 60" style="enable-background:new 0 0 60 60;" xml:space="preserve">
+                            <g>
+                                <path fill="#00ff00"; d="M56.981,11.5H28.019V6.52c0-1.665-1.354-3.02-3.019-3.02H3.019C1.354,3.5,0,4.854,0,6.52V20.5h60v-5.98   C60,12.854,58.646,11.5,56.981,11.5z"/>
+                                <path fill="#00ff00"; d="M0,53.48c0,1.665,1.354,3.02,3.019,3.02h53.962c1.665,0,3.019-1.354,3.019-3.02V22.5H0V53.48z"/>
+                            </g>
+                        
+                        </svg>
+                        <a class="headertxt2 foldertxt">Assets</a>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+        <script src="index.js"></script>
+    </div>
+</body>
+
+</html>
